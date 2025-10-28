@@ -16,32 +16,36 @@ const Navbar = () => {
         <img
           src={assets.logo}
           alt="Logo"
-          // className="w-32 sm:w-40 lg:w-60 drop-shadow-md"
           className="w-40 sm:w-50 lg:w-60 drop-shadow-md"
-
         />
       </Link>
 
       {/* Hamburger Icon (mobile only) */}
       <div
-        className="sm:hidden cursor-pointer"
+        className="sm:hidden cursor-pointer z-50"
         onClick={() => setMenuOpen(!menuOpen)}
       >
-        {menuOpen ? (
-          <X className="w-7 h-7 text-gray-800" />
-        ) : (
-          <Menu className="w-7 h-7 text-gray-800" />
-        )}
+        {!menuOpen && <Menu className="w-7 h-7 text-gray-800" />}
       </div>
 
       {/* Right Side (desktop + mobile) */}
       <div
         className={`${
           menuOpen
-            ? "absolute top-16 right-4 bg-white border rounded-xl shadow-md p-4 flex flex-col gap-4 items-center z-50 w-56 sm:hidden"
+            ? "absolute top-16 right-4 bg-black/60 border border-white/10 rounded-xl shadow-lg p-4 flex flex-col gap-4 items-center z-40 w-56 sm:hidden backdrop-blur-md transition-all duration-300"
             : "hidden sm:flex items-center gap-3 sm:gap-5"
         }`}
       >
+        {/* ✖ Close Icon (placed inside the menu at top-right) */}
+        {menuOpen && (
+          <button
+            className="absolute top-2 right-2 text-white hover:text-gray-300 transition"
+            onClick={() => setMenuOpen(false)}
+          >
+            <X className="w-6 h-6" />
+          </button>
+        )}
+
         {user ? (
           <>
             {/* Credits Button */}
@@ -62,11 +66,11 @@ const Navbar = () => {
             <div
               className={`${
                 menuOpen
-                  ? "flex flex-col items-center gap-2" // mobile layout
-                  : "flex items-center gap-2" // desktop layout
+                  ? "flex flex-col items-center gap-2 text-white" // white text inside mobile menu
+                  : "flex items-center gap-2 text-gray-800" // normal text on desktop
               }`}
             >
-              <p className="text-gray-800 font-medium">Hi, {user.name}</p>
+              <p className="font-medium">Hi, {user.name}</p>
               <div className="relative group">
                 <img
                   src={assets.profile_icon}
