@@ -1,6 +1,6 @@
-import React from 'react'
-import { assets } from '../assets/assets'
-import { motion } from 'framer-motion'
+import React from "react";
+import { assets } from "../assets/assets";
+import { motion } from "framer-motion";
 
 const Description = () => {
   return (
@@ -11,41 +11,30 @@ const Description = () => {
       viewport={{ once: true }}
       className="flex flex-col items-center justify-center my-24 px-4 sm:px-10 md:px-14 lg:px-20 text-center"
     >
- 
-
-
-
-<motion.h1
-  className="text-4xl sm:text-5xl font-extrabold mb-3"
->
-  <motion.span
-    style={{
-      backgroundImage:
-        "linear-gradient(90deg, #67e8f9, #99f6e4, #34d399)", // cyan → teal → emerald
-      backgroundSize: "200% 100%", // make gradient wider than text
-      backgroundPosition: "0% 50%",
-      WebkitBackgroundClip: "text",
-      backgroundClip: "text",
-      color: "transparent",
-      display: "inline-block",
-    }}
-    animate={{
-      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"], // moves left → right → left
-    }}
-    transition={{
-      duration: 6,
-      ease: "easeInOut",
-      repeat: Infinity,
-    }}
-  >
-    Generate AI Images
-  </motion.span>
-</motion.h1>
-
-
-
-
-
+      <motion.h1 className="text-4xl sm:text-5xl font-extrabold mb-3">
+        <motion.span
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg, #67e8f9, #99f6e4, #34d399)", // cyan → teal → emerald
+            backgroundSize: "200% 100%", // make gradient wider than text
+            backgroundPosition: "0% 50%",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            color: "transparent",
+            display: "inline-block",
+          }}
+          animate={{
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"], // moves left → right → left
+          }}
+          transition={{
+            duration: 6,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+        >
+          Generate AI Images
+        </motion.span>
+      </motion.h1>
 
       <p className="text-lg text-white/90 mb-12 italic">
         Your Vision, Our Pixels
@@ -76,7 +65,7 @@ const Description = () => {
         </div>
       </div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default Description
+export default Description;

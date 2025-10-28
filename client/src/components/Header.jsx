@@ -20,13 +20,12 @@ const Header = () => {
 
   return (
     <motion.div
-      className="flex flex-col justify-center items-center text-center my-20"
+      className="flex flex-col justify-center items-center text-center mt-[-8px] mb-20"
       initial={{ opacity: 0.2, y: 100 }}
       transition={{ duration: 1 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
     >
-
       <motion.h1
         className="text-4xl max-w-[300px] sm:text-6xl sm:max-w-[590px] mx-auto mt-10 text-center"
         initial={{ opacity: 0 }}
@@ -36,15 +35,23 @@ const Header = () => {
         Craft <span className="text-teal-800 font-bold">Art</span> from{" "}
         <span className="text-teal-800 font-bold">Words</span> in seconds.
       </motion.h1>
+
       <motion.p
-        className="text-center max-w-xl mx-auto mt-5 "
+        className="text-center text-neutral-700 max-w-[85%] sm:max-w-2xl mx-auto mt-4 sm:mt-6 text-[15px] sm:text-lg leading-relaxed sm:leading-loose tracking-wide px-3"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
+        transition={{
+          delay: 0.6,
+          duration: 0.9,
+          ease: [0.25, 0.8, 0.25, 1],
+        }}
       >
-        From imagination to illustration — watch AI transform your ideas into
-        art within seconds.
+        From <span className="font-semibold text-teal-800">imagination</span> to{" "}
+        <span className="font-semibold text-teal-800">illustration</span> —
+        experience how <span className="font-bold text-teal-900">AI</span>{" "}
+        transforms your ideas into stunning visuals within seconds.
       </motion.p>
+
       {/* Genrate button */}
       <motion.button
         onClick={onClickHandler}
@@ -57,9 +64,9 @@ const Header = () => {
         }}
         whileHover={{
           scale: 1.15,
-          boxShadow: "0px 12px 25px rgba(0,0,0,0.3)",
+          boxShadow: "0px 12px 25px rgba(0,0,0,0.55)",
         }}
-        className="relative group sm:text-lg text-white bg-teal-700 
+        className="relative group sm:text-lg text-white bg-gradient-to-r from-pink-500 to-teal-600
              w-auto mt-8 px-8 py-2.5 flex items-center gap-2 
              rounded-full shadow-md overflow-hidden"
       >
